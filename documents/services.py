@@ -1,7 +1,6 @@
 import os
 
 from dotenv import load_dotenv
-
 from langchain_openai import ChatOpenAI
 
 from .models import DocumentChunk
@@ -10,7 +9,7 @@ from .models import DocumentChunk
 load_dotenv()
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_MODEL = os.getenv("gpt-oss-120b")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL")
 
 
 llm = ChatOpenAI(
@@ -22,9 +21,7 @@ llm = ChatOpenAI(
 
 def retrieve_relevant_chunks(question, limit=3):
     chunks = DocumentChunk.objects.all()
-
     scored_chunks = []
-
     question_words = question.lower().split()
 
     for chunk in chunks:
