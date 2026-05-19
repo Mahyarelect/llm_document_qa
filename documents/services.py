@@ -60,9 +60,13 @@ Question:
 {question}
 """
 
-    response = llm.invoke(prompt)
+    try:
+        response = llm.invoke(prompt)
+        answer = response.content
+    except Exception as e:
+        answer = f"LLM service error: {str(e)}"
 
     return {
-        "answer": response.content,
+        "answer": answer,
         "context": context,
     }
