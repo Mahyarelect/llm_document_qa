@@ -1,5 +1,24 @@
 # LLM Document QA System
 
+
+<p align="center">
+  <img src="assets/architecture.png" width="100%">
+</p>
+
+## System Architecture
+
+The system follows a Retrieval-Augmented Generation (RAG) pipeline:
+
+1. User uploads DOCX document
+2. Text extraction is performed
+3. Document is chunked
+4. Retrieval layer finds relevant chunks
+5. Prompt is constructed
+6. LangChain sends request to OpenRouter LLM
+7. Generated answer is returned
+8. Question history is stored
+
+
 A Retrieval-Augmented Generation (RAG) backend system built with Django, Django REST Framework, LangChain, and OpenRouter.
 
 The system allows users to upload DOCX documents, extract text, retrieve relevant document chunks, and ask AI-powered questions about uploaded content.
