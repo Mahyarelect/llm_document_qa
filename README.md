@@ -87,6 +87,36 @@ Generated Answer
 
 ---
 
+## BM25 Information Retrieval (IR) Search
+
+The project includes an advanced retrieval method using **BM25**, a classical Information Retrieval ranking algorithm, to find the most relevant chunks of text from uploaded documents.
+
+### How it works
+
+1. **Text Tokenization:** Each document chunk is tokenized into lowercase words.
+2. **BM25 Indexing:** All tokenized chunks are used to build a BM25 index.
+3. **Query Tokenization:** User questions are tokenized using the same method.
+4. **Scoring:** BM25 scores each chunk based on relevance to the tokenized query.
+5. **Top Chunks:** The top N chunks (default 3) are selected and passed as context to the LLM.
+
+### Features
+
+- **Optional Search Method:** Users can select BM25 as an alternative to the default simple keyword search.
+- **Top-N Retrieval:** Configurable number of chunks to return.
+- **Context Construction:** Retrieved chunks are concatenated to create the context for LLM prompts.
+- **Fallback:** If no relevant chunks are found, the system returns `"I could not find relevant information in the uploaded documents."`
+
+### Example Usage in API
+
+```json
+POST /api/ask/
+{
+  "question": "What programming languages does Mahyar know?",
+  "search_method": "bm25"
+}
+
+
+
 # Installation
 
 ## Clone Repository
