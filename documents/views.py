@@ -30,6 +30,13 @@ class AskQuestionAPIView(generics.GenericAPIView):
             question=question,
             search_method=search_method
         )
+        
+        if not isinstance(result, dict):
+            result = {
+            "answer": "LLM service error: Invalid response from generate_answer().",
+            "context": "",
+            "search_method": search_method,
+        }
 
         history = QuestionHistory.objects.create(
             question=question,
