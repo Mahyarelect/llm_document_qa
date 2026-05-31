@@ -114,7 +114,7 @@ POST /api/ask/
   "question": "What programming languages does Mahyar know?",
   "search_method": "bm25"
 }
-
+```
 
 
 # Installation
@@ -287,9 +287,6 @@ GET /api/history/
 
 # Future Improvements
 
-- BM25 retrieval
-- Inverted index
-- Embedding search
 - ChromaDB / FAISS
 - PostgreSQL
 - PDF support
